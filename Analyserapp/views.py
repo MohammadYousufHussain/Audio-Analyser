@@ -150,10 +150,10 @@ def file_upload(request):
 
     obj = Input_audios.objects.last()
 
-    audio1 = "C:\\Users\\PSSRE\\Djangoproject\\Freelance\\Audio_project\\Audio_analyser\\media\\media\\" + str(obj.audio_1)[5:]
-    audio2 = "C:\\Users\\PSSRE\\Djangoproject\\Freelance\\Audio_project\\Audio_analyser\\media\\media\\" + str(obj.audio_2)[5:]
-    audio3 = "C:\\Users\\PSSRE\\Djangoproject\\Freelance\\Audio_project\\Audio_analyser\\media\\media\\" + str(obj.audio_3)[5:]
-    audioanalyse = "C:\\Users\\PSSRE\\Djangoproject\\Freelance\\Audio_project\\Audio_analyser\\media\\media\\" + str(obj.audio_analyse)[5:]
+    audio1 = "C:\\..\\Audio_project\\Audio_analyser\\media\\media\\" + str(obj.audio_1)[5:]
+    audio2 = "C:\\..\\Audio_project\\Audio_analyser\\media\\media\\" + str(obj.audio_2)[5:]
+    audio3 = "C:\\..\\Audio_project\\Audio_analyser\\media\\media\\" + str(obj.audio_3)[5:]
+    audioanalyse = "C:\\..\\Audio_project\\Audio_analyser\\media\\media\\" + str(obj.audio_analyse)[5:]
     print('clicked')
     search_function(malspec, chroma, zerocross, sdf, keyword = word, keyword_file1= audio1, keyword_file2=audio2, keyword_file3 = audio3,
                     large_audio_file=audioanalyse)
@@ -163,7 +163,7 @@ def file_upload(request):
     "=========="
 
 
-    loc = "C:\\Users\\PSSRE\\Djangoproject\\Freelance\\Audio_project\\Audio_analyser\\media\\media\\"
+    loc = "C:\\..\\Audio_project\\Audio_analyser\\media\\media\\"
     filestr1 = obj.audio_1
     filestr1 = str(filestr1)
     filestr2 = obj.audio_2
@@ -214,7 +214,7 @@ def plotter(request):
 
     dataframe = pd.DataFrame(data, columns = ['Window_size','Runtime'])
     dataframe.plot(x = 'Window_size', y = 'Runtime', kind  = 'line')
-    plt.savefig('C:\\Users\\PSSRE\\Djangoproject\\Freelance\\Audio_project\\Audio_analyser\\static\\graph1.jpg')
+    plt.savefig('C:\\..\\Audio_project\\Audio_analyser\\static\\graph1.jpg')
 
     return render(request,'chart.html',{'plotobj':plotobj})
 
@@ -353,7 +353,7 @@ class Resultplot1(APIView):
         for i in itemlist:
             fname = i.split('media/')
             fname = fname[1]
-            fname = "C:\\Users\\PSSRE\\Djangoproject\\Freelance\\Audio_project\\Audio_analyser\\media\\media\\" + fname
+            fname = "C:\\..\\Audio_project\\Audio_analyser\\media\\media\\" + fname
             audioplot,sr = librosa.load(fname,sr=15000)
 
             columns = []
@@ -460,7 +460,7 @@ class Searchplot(APIView):
         for i in itemlist:
             fname = i.split('media/')
             fname = fname[1]
-            fname = "C:\\Users\\PSSRE\\Djangoproject\\Freelance\\Audio_project\\Audio_analyser\\media\\media\\" + fname
+            fname = "C:\\..\\Audio_project\\Audio_analyser\\media\\media\\" + fname
             audioplot,sr = librosa.load(fname,sr=15000)
 
             columns = []
@@ -568,7 +568,7 @@ class Defresults(APIView):
         for i in itemlist:
             fname = i.split('media/')
             fname = fname[1]
-            fname = "C:\\Users\\PSSRE\\Djangoproject\\Freelance\\Audio_project\\Audio_analyser\\media\\media\\" + fname
+            fname = "C:\\..\\Audio_project\\Audio_analyser\\media\\media\\" + fname
             audioplot,sr = librosa.load(fname, sr = 5000)
 
 
@@ -1012,22 +1012,22 @@ def write_audio_output(keyword, potential_df = pd.DataFrame(), target_length = 1
 
     current_time = datetime.datetime.now()
     timestr = str(current_time.year) + "_" + str(current_time.month) + "_" + str(current_time.day) + "_" + str(current_time.hour) + "_" + str(current_time.minute) + "_" + str(current_time.second)
-    timesave1 = "C:\\Users\\PSSRE\\Djangoproject\\Freelance\\Audio_project\\Audio_analyser\\media\\media\\search_1" + timestr
+    timesave1 = "C:\\..\\Audio_project\\Audio_analyser\\media\\media\\search_1" + timestr
     librosa.output.write_wav(timesave1, audio_subset, sr=test_sr)
     out_file_list.append(timesave1)
 
     output.search_1 = "media/search_1" + timestr
 
-    #search = open('C:\\Users\\PSSRE\\Djangoproject\\Freelance\\search_1.wav','r')
+    #search = open('C:\\..\\search_1.wav','r')
     #output_list.append(search)
 
-    #audio_output.search_1 = wave.open('C:\\Users\\PSSRE\\Djangoproject\\Freelance\\search_1.wav')
+    #audio_output.search_1 = wave.open('C:\\..\\search_1.wav')
 
     # convert the second search result into audio
     start_point = potential_df['sample_loc'].iloc[1]
     end_point = start_point + target_length
     audio_subset = test_audio[start_point: end_point]
-    timesave2 = "C:\\Users\\PSSRE\\Djangoproject\\Freelance\\Audio_project\\Audio_analyser\\media\\media\\search_2" + timestr
+    timesave2 = "C:\\..\\Audio_project\\Audio_analyser\\media\\media\\search_2" + timestr
     librosa.output.write_wav(timesave2, audio_subset, sr=test_sr)
     output.search_2 = "media/search_2" + timestr
     out_file_list.append(timesave2)
@@ -1036,7 +1036,7 @@ def write_audio_output(keyword, potential_df = pd.DataFrame(), target_length = 1
     start_point = potential_df['sample_loc'].iloc[2]
     end_point = start_point + target_length
     audio_subset = test_audio[start_point: end_point]
-    timesave3 = "C:\\Users\\PSSRE\\Djangoproject\\Freelance\\Audio_project\\Audio_analyser\\media\\media\\search_3" + timestr
+    timesave3 = "C:\\..\\Audio_project\\Audio_analyser\\media\\media\\search_3" + timestr
     librosa.output.write_wav(timesave3, audio_subset, sr=test_sr)
     output.search_3 = "media/search_3" + timestr
     out_file_list.append(timesave3)
@@ -1045,7 +1045,7 @@ def write_audio_output(keyword, potential_df = pd.DataFrame(), target_length = 1
     start_point = potential_df['sample_loc'].iloc[3]
     end_point = start_point + target_length
     audio_subset = test_audio[start_point: end_point]
-    timesave4 = "C:\\Users\\PSSRE\\Djangoproject\\Freelance\\Audio_project\\Audio_analyser\\media\\media\\search_4" + timestr
+    timesave4 = "C:\\..\\Audio_project\\Audio_analyser\\media\\media\\search_4" + timestr
     librosa.output.write_wav(timesave4, audio_subset, sr=test_sr)
     output.search_4 = "media/search_4" + timestr
     out_file_list.append(timesave4)
@@ -1054,7 +1054,7 @@ def write_audio_output(keyword, potential_df = pd.DataFrame(), target_length = 1
     start_point = potential_df['sample_loc'].iloc[4]
     end_point = start_point + target_length
     audio_subset = test_audio[start_point: end_point]
-    timesave5 = "C:\\Users\\PSSRE\\Djangoproject\\Freelance\\Audio_project\\Audio_analyser\\media\\media\\search_5" + timestr
+    timesave5 = "C:\\..\\Audio_project\\Audio_analyser\\media\\media\\search_5" + timestr
     librosa.output.write_wav(timesave5, audio_subset, sr=test_sr)
     output.search_5 = "media/search_5" + timestr
     out_file_list.append(timesave5)
@@ -1063,7 +1063,7 @@ def write_audio_output(keyword, potential_df = pd.DataFrame(), target_length = 1
     start_point = potential_df['sample_loc'].iloc[5]
     end_point = start_point + target_length
     audio_subset = test_audio[start_point: end_point]
-    timesave6 = "C:\\Users\\PSSRE\\Djangoproject\\Freelance\\Audio_project\\Audio_analyser\\media\\media\\search_6" + timestr
+    timesave6 = "C:\\..\\Audio_project\\Audio_analyser\\media\\media\\search_6" + timestr
     librosa.output.write_wav(timesave6, audio_subset, sr=test_sr)
     output.search_6 = "media/search_6" + timestr
     out_file_list.append(timesave6)
