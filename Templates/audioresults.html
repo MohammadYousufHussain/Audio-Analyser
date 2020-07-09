@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+
+{% load static %}
+
+<link rel='stylesheet' href = "{% static 'bootstrap.css' %}" type = "text/css">
+<link rel="stylesheet" href="{% static 'results.css' %}" type="text/css">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar fixed-top" style="color: white;">
+		<a class="navbar-brand" href="home">Audio Analyser</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		  <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="results">Default Result <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="plotter">Plot <span class="sr-only">(current)</span></a>
+			
+		  </div>
+		</div>
+		<form class="form-inline" action="search_keyword">
+			<input class="form-control mr-sm-2" type="search" placeholder="Search Keyword" aria-label="Search" name="searchbar">
+			<input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Search">
+			<!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+		</form>
+	  </nav>
+
+    <div id="all_elements">
+        <div id="inputs">
+            <br>
+            <br>
+            <br>
+            <br>
+            <h2>
+            Audio samples to be searched
+            </h2>
+            <br>
+            <br>
+            <img src="{{ inaudio.visual_1.url }}" style="width:600px;height:250px;"><br>
+            <audio controls>
+                <source src="{{ inaudio.audio_1.url}}">
+            </audio>
+            <!--<audio controls>
+                <source src="{{ inaudio.audio_2.url}}">
+            </audio>
+            <audio controls>
+                <source src="{{ inaudio.audio_3.url}}">
+            </audio>-->
+            <br>
+            <br>
+            <div class="param">
+                Parameters Configuration
+                <br>
+                Malspec : {{inaudio.malspec}}
+                <br>
+                Chroma : {{inaudio.chroma}}
+                <br>
+                Zerocross : {{inaudio.zerocross}}
+                <br>
+                Silence decible floor : {{inaudio.silence_decible_floor}}
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            Large audio sample
+            <br>
+            <br>
+            <img src="{{ inaudio.visual_4.url }}" style="width:600px;height:250px;"><br>
+            <audio controls>
+                <source src="{{ inaudio.audio_analyse.url}}">
+            </audio>
+            
+        </div>
+        <div id="outputs">
+            <div id="out_heading">
+                <br>
+                <br>
+                <br>
+                Search results <br>
+                Please verify and submit your review<br>
+                <br>
+                <br>
+            </div>
+            <form action = "datasubmit">
+                <div id="form">
+                    <div id="first_row">
+                        <img src="{{ audio.visual_1.url }}" style="width:600px;height:250px;"><br>
+                        <audio controls>
+                            <source src="{{ audio.search_1.url}}" style="width:700px;height:200px;">
+                        </audio>
+                        
+                        <br>
+                        <input type="radio" id="match found" name="aud_1match" value="match">
+                        <label for="match found">Match Found</label><br>
+                        <input type="radio" id="No Match" name="aud_1match"value="no match">
+                        <label for="No Match">No Match</label><br>
+                        <br>
+    
+                        <img src="{{ audio.visual_2.url }}" style="width:600px;height:250px;"><br>
+                        <audio controls>
+                            <source src="{{ audio.search_2.url}}">
+                        </audio>
+                        <br>
+                        <input type="radio" id="match found" name="aud_2match" value="match">
+                        <label for="match found">Match Found</label><br>
+                        <input type="radio" id="No Match" name="aud_2match"value="no match">
+                        <label for="No Match">No Match</label><br>
+                        <br>
+                        <img src="{{ audio.visual_2.url }}" style="width:600px;height:250px;"><br>
+                        <audio controls>
+                            <source src="{{ audio.search_3.url}}">
+                        </audio>
+                        <br>
+                        <input type="radio" id="match found" name="aud_3match" value="match">
+                        <label for="match found">Match Found</label><br>
+                        <input type="radio" id="No Match" name="aud_3match"value="no match">
+                        <label for="No Match">No Match</label><br>
+                        <br>
+                    </div>
+                    <div id="second_row">
+                        
+                        <audio controls>
+                            <source src="{{ audio.search_4.url}}">
+                        </audio>
+    
+                        <br>
+                        <input type="radio" id="match found" name="aud_4match" value="match">
+                        <label for="match found">Match Found</label><br>
+                        <input type="radio" id="No Match" name="aud_4match"value="no match">
+                        <label for="No Match">No Match</label><br>
+                        <br>
+                        
+                        <audio controls>
+                            <source src="{{ audio.search_5.url}}">
+                        </audio>
+    
+                        <br>
+                        <input type="radio" id="match found" name="aud_5match" value="match">
+                        <label for="match found">Match Found</label><br>
+                        <input type="radio" id="No Match" name="aud_5match"value="no match">
+                        <label for="No Match">No Match</label><br>
+                        <br>
+                        <audio controls>
+                            <source src="{{ audio.search_6.url}}">
+                        </audio>
+    
+                        <br>
+                        <input type="radio" id="match found" name="aud_6match" value="match">
+                        <label for="match found">Match Found</label><br>
+                        <input type="radio" id="No Match" name="aud_6match"value="no match">
+                        <label for="No Match">No Match</label><br>
+                        <br>
+                    </div>
+                </div>
+                <div id="submit">
+                    <input type="submit" value="Submit data">
+                </div>
+            </form>
+        
+        </div>
+    
+    </div>
+</body>
+</html>

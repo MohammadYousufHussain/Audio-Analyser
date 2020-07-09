@@ -1,0 +1,40 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css.css' %}" type="text/css">
+<body background="{% static 'mwall.jpg' %}">
+    <div class="Heading">
+        <br>
+        Thank you so much for your response !!! <br>
+
+        Interested in another try ?
+        <br>
+        <br>
+    </div>
+    <div class="upload_form">
+        Please upload three audio samples
+        <form action="upload" method="POST" enctype="multipart/form-data">
+            <br>{% csrf_token %}<br>
+            <input type="file" name="audio1">
+            <br>
+            <br>
+            <input type="file" name="audio2">
+            <br>
+            <br>
+            <input type="file" name="audio3">
+            <br>
+            <br>
+            Upload the sample the be analysed
+            <br>
+            <br>
+            <input type="file" name="analyse">
+            <br>
+            <br>
+
+    
+            <input type="submit">
+        </form>
+    </div>
+
+    <div class="footer">
+        click <a href="results">here</a> for fetching the default data
+    </div>
+</body>

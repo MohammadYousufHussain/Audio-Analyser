@@ -1,0 +1,56 @@
+body{
+    background-color: black;
+}
+.heading{
+    text-align: center;
+    color: blanchedalmond;
+    font-size: xx-large;
+    text-shadow: 3px 3px 3px 3px;
+    font-family: sans-serif;
+}   
+
+#all_elements{
+    display: flex;
+    height: 100%;
+    
+    
+}
+#search_form{
+    width: 100%;
+       
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
+
+}
+
+#search_heading{
+    color: blanchedalmond;
+    padding-bottom: 2%;
+    font-size: x-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#search_elements{
+    margin-top: 25%;
+}
+#loading{
+    width: 10%;
+}
+#upload_form{
+    width: 100%;
+    color: blanchedalmond;
+    
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.form_heading{
+    font-size: x-large;
+    padding-top: 10px;
+    text-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+input{
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+{% load static %}
+<link rel='stylesheet' href = "{% static 'bootstrap.css' %}" type = "text/css">
+<link rel="stylesheet" href = "{% static 'css.css' %}" type="text/css">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar fixed-top" style="color: white">
+    <a class="navbar-brand" href="home">Audio Analyser</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+  <a class="nav-item nav-link active" href="results">Default Result <span class="sr-only">(current)</span></a>
+  <a class="nav-item nav-link active" href="plotter">Plot <span class="sr-only">(current)</span></a>
+        
+      </div>
+    </div>
+    <form class="form-inline" action="search_keyword">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search Keyword" aria-label="Search" name="searchbar">
+        <input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Search">
+        <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+    </form>
+  </nav>
+
+  {% endblock %}
+</body>
+</html>
+

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% load static %}
+<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" type="text/css">-->
+<link rel='stylesheet' href = "{% static 'bootstrap.css' %}" type = "text/css">
+<link rel="stylesheet" href = "{% static 'css.css' %}" type="text/css">
+<body style="background-color: black;">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar fixed-top" style="color: white">
+		<a class="navbar-brand" href="home">Audio Analyser</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		  <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="results">Default Result <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="plotter">Plot <span class="sr-only">(current)</span></a>
+			
+		  </div>
+		</div>
+		<form class="form-inline" action="search_keyword">
+			<input class="form-control mr-sm-2" type="search" placeholder="Search Keyword" aria-label="Search" name="searchbar">
+			<input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Search">
+			<!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+		</form>
+	  </nav>
+	<div class="container">
+		<div id="upload_form">
+			<br>
+			<br>
+            <div class="form_heading">
+				<br>
+				<h1>
+					Welcome to Audio Analyser
+				</h1>
+                {{input}}
+                <br>
+                Please upload three audio samples
+            </div>
+            
+            <form action="upload" method="POST" enctype="multipart/form-data" class="form-group">
+                <br>{% csrf_token %}<br>
+                <input type = "text" name = "keyword" placeholder="Enter the keyword"> <br><br>
+                <input type="file" name="audio1">
+                <br>
+                <br>
+                <input type="file" name="audio2">
+                <br>
+                <br>
+                <input type="file" name="audio3">
+                
+                <br>
+                <br>
+                <br>
+                <div class="sub_heading">
+                    Parameters configuration
+                </div>
+                <br>
+                <input type="text" name="malspec" placeholder="Malspec coefficient">
+                
+                <input type="text" name="chroma" placeholder="Chroma coefficient">
+                
+                <input type="text" name="zerocross" placeholder="Zerocross coefficient">
+                <br>
+                <br>
+                <input type="text" name="sdf" placeholder="Silence decible floor">
+                
+                <input type="text" name="window_size" placeholder="Window size">
+                
+                <br>
+                
+                <div class="form_heading">
+                    Upload the sample to be analysed
+                </div>
+                <br>
+                
+                <input type="file" name="analyse">
+                
+                <br>
+                <br>
+                <input type="checkbox" id="default_audio" name="default_audio" value="Need_default_audio">
+                <label for="default_audio"> I need to analyse my samples with the default audio </label>
+                <input type="hidden" name="default_audio" value="default_audio_not_needed"> <br>
+                <br>
+                 
+                
+                <br>
+        
+                <input type="submit" value="Upload and Analyse">
+            </form>
+        </div>
+	</div>
+	  
+</body>

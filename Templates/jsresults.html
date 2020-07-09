@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+    {% load static %}
+    <script src="{% static 'results.js' %}"></script>
+    
+    
+
+</head>
+
+
+<link rel='stylesheet' href = "{% static 'bootstrap.css' %}" type = "text/css">
+<link rel="stylesheet" href="{% static 'results1.css' %}" type="text/css">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar fixed-top" style="color: white;">
+		<a class="navbar-brand" href="home">Audio Analyser</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		  <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="results">Results <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="plotter">Plot <span class="sr-only">(current)</span></a>
+			
+		  </div>
+		</div>
+		<form class="form-inline" action="search_keyword">
+			<input class="form-control mr-sm-2" type="search" placeholder="Search Keyword" aria-label="Search" name="searchbar">
+			<input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Search">
+			<!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+		</form>
+	  </nav>
+
+    <div id="all_elements">
+        <div id="inputs" class="shadow-lg p-3 mb-5 bg-white rounded">
+            
+			<div id="keyaud">
+                <div class ="inhead">
+                    Keyword sample
+                </div>
+				</h2>
+				<br>
+				<br>
+				<div class="shadow p-3 mb-5 bg-white rounded">
+					<div style="width: 700px; height: 350px">
+						<canvas id="keyword" ></canvas>
+                    </div>
+                    <br>
+                    <br>
+					<audio controls>
+						<source src="{{ inaudio.audio_1.url}}">
+					</audio>
+				</div>
+				
+				<br>
+				<br>
+				<!--<div class="param">
+					Parameters Configuration
+					<br>
+					Malspec : {{inaudio.malspec}}
+					<br>
+					Chroma : {{inaudio.chroma}}
+					<br>
+					Zerocross : {{inaudio.zerocross}}
+					<br>
+					Silence decible floor : {{inaudio.silence_decible_floor}}
+				</div>-->
+			</div>
+			
+			<div id = 'largeaud'>
+                <div class="inhead">
+                    Large audio sample
+                </div>
+				<br>
+				<br>
+				<div class="shadow p-3 mb-5 bg-white rounded">
+					<div style="width: 700px; height: 350px">
+						<canvas id="large" ></canvas>
+                    </div>
+                    <br>
+                    <br>
+					<audio controls>
+						<source src="{{ inaudio.audio_analyse.url}}">
+					</audio>
+				</div>
+			</div>	
+        </div>
+        <div id="outputs" class="shadow-lg p-3 mb-5 bg-white rounded">
+            <div id="out_heading">
+                
+                Search results <br>
+                <br>
+                <br>
+                
+                
+            </div>
+            
+                
+            <div id="first_row">
+                        
+                <div id="aud1">
+                    <div class ="inhead">
+                        Result sample
+                    </div>
+                    <br>
+                    <div class="shadow p-3 mb-5 bg-white rounded">
+                        <div style="width: 700px; height: 350px;">
+                            <canvas id="search_1" ></canvas>
+                        </div>
+                        <br>
+                        <audio controls>
+                            <source src="{{ audio.search_1.url}}">
+                        </audio>
+                    </div>
+                </div>
+                <div id="largeaud">
+                    <div class ="inhead">
+                        Large audio sample
+                    </div>
+                    <br>
+
+                    <div class="shadow p-3 mb-5 bg-white rounded">
+                        <div style="width: 700px; height: 350px">
+                            <canvas id="largeB" ></canvas>
+                        </div>
+                        <br>
+                        
+                        <audio controls>
+                            <source src="{{ inaudio.audio_analyse.url}}">
+                        </audio>
+                    </div>
+
+                </div>
+
+                <!--
+                <div id="aud2">
+                    <div class="shadow p-3 mb-5 bg-white rounded">
+                        <div style="width: 700px; height: 350px">
+                            <canvas id="search_2" ></canvas>
+                        </div>
+                        <br>
+                        <audio controls>
+                            <source src="{{ audio.search_2.url}}">
+                        </audio>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div id="second_row" style="text-align: center;">
+                <br>
+                <div id = 'search3' class="shadow p-3 mb-5 bg-white rounded">
+                    <div style="width: 700px; height: 350px">
+                        <canvas id="search_3" ></canvas>
+                    </div>
+                    <br>
+                    <audio controls>
+                        <source src="{{ audio.search_3.url}}">
+                    </audio>
+                </div>
+            </div>-->
+                
+            
+            
+        </div>
+        
+    
+
+</div>
+
+</div>
+</body>
+</html>
